@@ -1,5 +1,5 @@
 from fastapi.testclient import TestClient
-from main import app  # Asegúrate de que `main.py` esté en el mismo directorio raíz del proyecto
+from main import app, create_app
 
 client = TestClient(app)
 
@@ -22,3 +22,7 @@ def test_get_usuarios():
             {"id": 4, "name": "Bob Brown"}
         ]
     }
+
+def test_create_app():
+    app_instance = create_app()
+    assert app_instance is not None

@@ -3,6 +3,7 @@ from main import app, create_app
 
 client = TestClient(app)
 
+
 def test_read_root():
     response = client.get("/")
     assert response.status_code == 200
@@ -10,6 +11,7 @@ def test_read_root():
         "title": "My First API",
         "message": "Hello, Welcome to the API!"
     }
+
 
 def test_get_usuarios():
     response = client.get("/usuarios")
@@ -22,6 +24,7 @@ def test_get_usuarios():
             {"id": 4, "name": "Bob Brown"}
         ]
     }
+
 
 def test_create_app():
     app_instance = create_app()
